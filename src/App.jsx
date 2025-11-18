@@ -1,71 +1,54 @@
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Section from './components/Section'
+import Timeline from './components/Timeline'
+
 function App() {
+  const timeline = [
+    { title: 'Origins and Establishment', period: '1957', desc: 'Formed with the aim of centralized internal security and intelligence coordination.' },
+    { title: 'Operational Expansion', period: '1960s–1970s', desc: 'Broadened domestic intelligence, counter-espionage, and security operations.' },
+    { title: 'Late Period and Dissolution', period: '1979', desc: 'Institution dissolved amid political change; many responsibilities later reorganized under new entities.' },
+  ]
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+    <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-blue-500/30">
+      <Navbar />
+      <Hero />
 
-      <div className="relative min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-2xl w-full">
-          {/* Header with Flames icon */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <img
-                src="/flame-icon.svg"
-                alt="Flames"
-                className="w-24 h-24 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-              />
-            </div>
+      <main className="relative">
+        <Section id="about" eyebrow="Overview" title="About">
+          <p>
+            This site provides a neutral overview of SAVAK, focusing on historical context, primary functions, and the environment in which it operated. It is intended for informational purposes, presenting concise summaries without advocacy.
+          </p>
+        </Section>
 
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              Flames Blue
-            </h1>
+        <Section id="structure" eyebrow="Organization" title="Structure">
+          <p>
+            Organizational responsibilities traditionally included domestic intelligence collection, counterintelligence, and coordination with other security entities. Structures changed over time, with divisions handling analysis, field operations, and administration.
+          </p>
+          <ul>
+            <li>Domestic intelligence and analysis</li>
+            <li>Counter-espionage and security operations</li>
+            <li>Administrative and liaison functions</li>
+          </ul>
+        </Section>
 
-            <p className="text-xl text-blue-200 mb-6">
-              Build applications through conversation
-            </p>
-          </div>
+        <Section id="timeline" eyebrow="History" title="Timeline">
+          <Timeline items={timeline} />
+        </Section>
 
-          {/* Instructions */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 shadow-xl mb-6">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Describe your idea</h3>
-                <p className="text-blue-200/80 text-sm">Use the chat panel on the left to tell the AI what you want to build</p>
-              </div>
-            </div>
+        <Section id="legacy" eyebrow="Context" title="Legacy">
+          <p>
+            Discussions of legacy typically address the institution’s role within broader political developments, as well as subsequent reforms and reorganizations. Perspectives vary across sources; this overview aims to be factual and concise.
+          </p>
+        </Section>
+      </main>
 
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Watch it build</h3>
-                <p className="text-blue-200/80 text-sm">Your app will appear in this preview as the AI generates the code</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Refine and iterate</h3>
-                <p className="text-blue-200/80 text-sm">Continue the conversation to add features and make changes</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="text-center">
-            <p className="text-sm text-blue-300/60">
-              No coding required • Just describe what you want
-            </p>
-          </div>
+      <footer className="border-t border-white/10 py-10">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-sm text-slate-400">
+          <p>Neutral overview for educational reference.</p>
         </div>
-      </div>
+      </footer>
     </div>
   )
 }
